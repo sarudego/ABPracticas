@@ -1,3 +1,5 @@
+#!/usr/bin python2.7
+
 """
 Problema del viajante de comercio implementado mediante fuerza bruta.
 Obtiene todos los caminos posibles e indica cual es el mas corto.

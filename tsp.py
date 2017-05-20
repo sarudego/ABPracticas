@@ -1,24 +1,34 @@
 import sys
-import p1
-import auxi
-import dynamic
+import p1, dynamic, voraz, auxi
 
 
 opt = sys.argv[1]
 archivo = sys.argv[2]
 
-
-
 if opt == "fb":
-    matriz = auxi.leerArchivo(archivo)
-    print matriz
-    p1.fuerzaMatriz(matriz)
+    try:
+        matriz = auxi.leerArchivo(archivo)
+    except:
+        print "No se ha podido leer archivo"
+        print "Compruebe que la ruta esta bien escrita"
+    else:
+        p1.fuerzaMatriz(matriz)
 elif opt == "av":
-    print "Aun no se ha implementado el algoritmo voraz"
+    try:
+        matriz = auxi.leerArchivo(archivo)
+    except:
+        print "No se ha podido leer archivo"
+        print "Compruebe que la ruta esta bien escrita"
+    else:
+        voraz.voraz(matriz)
 elif opt == "pd":
-    print "Aun no se ha implementado la programacion dinamica"
-    matriz = auxi.leerArchivo(archivo)
-    dynamic.dinamica(matriz)
+    try:
+        matriz = auxi.leerArchivo(archivo)
+    except:
+        print "No se ha podido leer archivo"
+        print "Compruebe que la ruta esta bien escrita"
+    else:
+        dynamic.dinamica(matriz)
 elif opt == "rp":
     print "Aun no se ha implementado la ramificacion y poda"
 else:

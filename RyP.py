@@ -84,7 +84,7 @@ def RamPoda(matriz, nodo):
                 if (len(q) == 0) or (min(q)[0] >= u):
                     sol = [poda(xcurso[1], i, xcurso[2], xcurso[0]), xcurso[3] + "-" + str(i+1) + "-1"]
                     q = []
-    print "El camino mas corto en Ramifacion y Poda es: " + str(sol[1])
+    print "El camino mas corto es: " + str(sol[1])
     print "Con coste: " + str(sol[0])
                 
                         

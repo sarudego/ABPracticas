@@ -1,3 +1,4 @@
+
 def inicializarS(nodos, n):
     s = []
     for i in range(nodos):
@@ -24,9 +25,11 @@ def voraz(matriz):
         coste += minimo
         inicio = sol
         s.remove(sol)
-    solucion.append(1)
     coste += matriz[sol-1][0]
-    print "El camino mas corto en Algoritmos voraces es: " + str(solucion)
-    print "Con distancia " + str(coste)
-    
+    camino = ""
+    for i in solucion:
+        camino += str(i) + "-"
+    camino += "1"
+    print "El camino mas corto es: " + str(camino)
+    print "Con distancia " + str(coste)    
     

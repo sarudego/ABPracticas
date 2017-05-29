@@ -26,7 +26,7 @@ def voraz(matriz):
         s.remove(sol)
     solucion.append(1)
     coste += matriz[sol-1][0]
-    print "El camino mas corto es: " + str(solucion)
+    print "El camino mas corto en Algoritmos voraces es: " + str(solucion)
     print "Con distancia " + str(coste)
     
     

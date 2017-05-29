@@ -31,7 +31,7 @@ def dinamica(matriz):
     path = inicializarM(nodos, None)
     coste = g(0, s, matriz, gtab, path)
     camino = c(0, s, path)
-    print "El camino mas corto es: " + str(camino)
+    print "El camino mas corto en Programacion Dinamica es: " + str(camino)
     print "Con distancia " + str(coste)
 
 def g(i, s, matriz, gtab, camino):

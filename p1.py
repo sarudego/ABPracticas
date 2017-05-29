@@ -37,6 +37,6 @@ def fuerzaMatriz(matriz):
         caminos.append(c)
     c = min(caminos)
     print "\n"
-    print "El camino optimo es: " + repr(c[1])
+    print "El camino optimo en Fuerza Bruta es: " + repr(c[1])
     print "Con distancia " + repr(c[0])
 

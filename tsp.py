@@ -1,7 +1,5 @@
-#!/usr/bin/env python2.7
-
 import sys
-import p1, dynamic, voraz, auxi
+import p1, dynamic, voraz, auxi, RyP
 
 
 opt = sys.argv[1]
@@ -32,6 +30,12 @@ elif opt == "pd":
     else:
         dynamic.dinamica(matriz)
 elif opt == "rp":
-    print "Aun no se ha implementado la ramificacion y poda"
+    try:
+        matriz = auxi.leerArchivo(archivo)
+    except:
+        print "No se ha podido leer archivo"
+        print "Compruebe que la ruta esta bien escrita"
+    else:
+        RyP.RamPoda(matriz, 0)
 else:
     print "No se a elegido un esquema valido"

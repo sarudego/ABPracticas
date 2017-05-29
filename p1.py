@@ -21,10 +21,10 @@ def fuerzaMatriz(matriz):
     for i in vertices:
         if i[0] == inicio:
             lst.append(i)
-    print lst
-    print "\n"
+    # print lst
+    # print "\n"
     caminos = []
-    print "Los caminos posibles son: "
+    # print "Los caminos posibles son: "
     for i in lst:
         suma = 0
         for j in range(len(i)):
@@ -32,11 +32,11 @@ def fuerzaMatriz(matriz):
                 suma += matriz[i[j]-1][i[j+1]-1]
             else:
                 suma += matriz[i[j]-1][inicio-1]
-        print repr(i) + " con distancia " + repr(suma)
+        # print repr(i) + " con distancia " + repr(suma)
         c = [suma, i]
         caminos.append(c)
     c = min(caminos)
-    print "\n"
+    # print "\n"
     print "El camino optimo en Fuerza Bruta es: " + repr(c[1])
     print "Con distancia " + repr(c[0])
 

@@ -1,5 +1,5 @@
 import sys
-import p1, dynamic, voraz, auxi, RyP
+import bruta, dynamic, voraz, auxi, RyP
 
 
 opt = sys.argv[1]
@@ -12,7 +12,7 @@ if opt == "fb":
         print "No se ha podido leer archivo"
         print "Compruebe que la ruta esta bien escrita"
     else:
-        p1.fuerzaMatriz(matriz)
+        bruta.fuerzaMatriz(matriz)
 elif opt == "av":
     try:
         matriz = auxi.leerArchivo(archivo)

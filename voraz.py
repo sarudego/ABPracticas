@@ -30,6 +30,6 @@ def voraz(matriz):
     for i in solucion:
         camino += str(i) + "-"
     camino += "1"
-    print "El camino mas corto es: " + str(camino)
+    print "El camino mas corto Algoritmo Voraz es: " + str(camino)
     print "Con distancia " + str(coste)    
     

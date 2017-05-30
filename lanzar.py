@@ -21,13 +21,14 @@ for i in range(60, 54, -1):
 ficheros_grandes.sort()
 ficheros_din = listdir('Pruebas')
 ficheros_din.sort()
-for i in range(60, 19, -1):
+for i in range(60, 18, -1):
     ficheros_din.pop(i)
 ficheros_din.sort(reverse=True)
-for i in range(19, 15, -1):
+for i in range(18, 10, -1):
     ficheros_din.pop(i)
 ficheros_din.sort()
-
+ficheros128_256 = listdir('Pruebas/extra')
+ficheros128_256.sort()
 """
 ejecucion hasta 10x10
 """
@@ -45,7 +46,7 @@ for i in opt:
     for j in dire:
         print "Se va a ejecutar el fichero... " + j
         start_time = time.time()
-        os.system('python tsp.py ' + i + ' ' + 'Pruebas/' +j)
+        # os.system('python tsp.py ' + i + ' ' + 'Pruebas/' +j)
         tiempo = (time.time() - start_time)
         outfile.write("El fichero " + j + " ha costado " + str(tiempo) + " segundos\n")
         print "Ha costado " + str(tiempo) + " segundos"
@@ -64,17 +65,26 @@ for i in opt2:
         for j in ficheros_grandes:
             print "Se va a ejecutar el fichero... " + j
             start_time = time.time()
-            os.system('python tsp.py ' + i + ' ' + 'Pruebas/' +j)
+            # os.system('python tsp.py ' + i + ' ' + 'Pruebas/' +j)
             tiempo = (time.time() - start_time)
             outfile.write("El fichero " + j + " ha costado " + str(tiempo) + " segundos\n")
             print "Ha costado " + str(tiempo) + " segundos"
             print ""
+        for j in ficheros128_256:
+            print "Se va a ejecutar el fichero... " + j
+            start_time = time.time()
+            os.system('python tsp.py ' + i + ' ' + 'Pruebas/extra/' +j)
+            tiempo = (time.time() - start_time)
+            outfile.write("El fichero " + j + " ha costado " + str(tiempo) + " segundos\n")
+            print "Ha costado " + str(tiempo) + " segundos"
+            print ""
+
     elif (i == "pd"):
         print "Se va a ejecutar el algoritmo de \"Programacion Dinamica\" con ficheros de prueba"
         for j in ficheros_din:
             print "Se va a ejecutar el fichero... " + j
             start_time = time.time()
-            os.system('python tsp.py ' + i + ' ' + 'Pruebas/' +j)
+            # os.system('python tsp.py ' + i + ' ' + 'Pruebas/' +j)
             tiempo = (time.time() - start_time)
             outfile.write("El fichero " + j + " ha costado " + str(tiempo) + " segundos\n")
             print "Ha costado " + str(tiempo) + " segundos"
@@ -84,7 +94,7 @@ for i in opt2:
         for j in ficheros_grandes:
             print "Se va a ejecutar el fichero... " + j
             start_time = time.time()
-            os.system('python tsp.py ' + i + ' ' + 'Pruebas/' +j)
+            # os.system('python tsp.py ' + i + ' ' + 'Pruebas/' +j)
             tiempo = (time.time() - start_time)
             outfile.write("El fichero " + j + " ha costado " + str(tiempo) + " segundos\n")
             print "Ha costado " + str(tiempo) + " segundos"
@@ -96,4 +106,4 @@ outfile.close()
 # print dire
 # print ficheros_grandes
 # print ficheros_din
-
+print ficheros128_256

@@ -31,6 +31,6 @@ def fuerzaMatriz(matriz):
     for i in c[1]:
         camino += str(i) + "-"
     camino += "1"
-    print "El camino optimo es: " + str(camino)
+    print "El camino optimo Fuerza Bruta es: " + str(camino)
     print "Con distancia " + repr(c[0])
 

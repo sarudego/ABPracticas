@@ -1,18 +1,26 @@
 #!/usr/bin python2.7
+# -*- coding: utf-8 -*-
 
 import os
 from os import listdir
 import time
 """
-Limits:
-In Brute, until 13x13
-In RyP, until 26x26
-In P.D, until 23x23
-In Voraz, we don't reach the limit...
+Limites:
+Fuerza bruta, 12x12, 13x13 se puede pero lleva mucho tiempo
+RyP, hasta 26x26
+P.D, hasta 23x23
+Voraz, no hemos encontrado limite, hemos llegado a 2048x2048...
 """
 
 opt = ['fb','av','pd','rp']
 
+"""
+Almacenamos distintos tamaños de grafos
+files_small --> de 4x4 a 10x10
+files_medium --> de 11x11 a 64x64
+files_large --> 128x128 a 2048x2048
+es debido a la limitación de los distintos algoritmos
+"""
 files_small = []
 files_medium = []
 files_large = []
@@ -27,7 +35,10 @@ files_small.sort()
 files_medium.sort()
 files_large.sort()
 
-
+"""
+Se imprime por pantalla el fichero a ejecutarse, su coste en tiempo, y se guarda
+en un fichero llamado "tiempos.txt"
+"""
 outfile = open('tiempos.txt', 'w') # Indicamos el valor 'w'.
 def execute_time(alg,i):
     print "Se va a ejecutar el fichero... " + i
@@ -38,10 +49,13 @@ def execute_time(alg,i):
     print "Ha costado " + str(tiempo) + " segundos"
     print ""
 
+"""
+Funciones para distintos algoritmos usando los grafos con distintos limites
+"""
 def bruta(alg):
     for i in files_small:
         execute_time(alg,i)
-    for i in files_medium[:6]:
+    for i in files_medium[:2]:
         execute_time(alg,i)
 
 def voraz(alg):
@@ -54,7 +68,7 @@ def voraz(alg):
 
 def dinamica(alg):
     for i in files_small:
-        print ""
+        execute_time(alg,i)
     for i in files_medium[:14]:
         execute_time(alg,i)
 
@@ -64,6 +78,10 @@ def poda(alg):
     for i in files_medium[:17]:
         execute_time(alg,i)
 
+
+"""
+Ejecución de los algoritmos usando los ficheros dados de manera automatica
+"""
 for i in opt:
     outfile.write("Ejecucion de " + i + "\n")
     if (i == "fb"):

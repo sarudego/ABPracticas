@@ -14,7 +14,16 @@ Para ejecutar un determinado algoritmo sobre un grafo se debe ejecutar:
 
 	Ejemplo:
 		./tsp fb /pruebas/m08.tsp
+-------------------------------------------------------------------------------------------------------------------------------------
 
+Para crear los archvios que continene los grafos se debe ejecutar el archivo matrices.py de la siguiente forma:
+
+python matrices.py [minimo] [maximo]
+	minimo = número de filas y columnas de la matriz mas pequeña que se quiere generar
+	maximo = número de filas y columnas de la matriz mas grande que se quiere generar
+
+Las matrices generadas se guardaran en la carpeta Pruebas que se encuentra en este mismo direcctorio.
+-------------------------------------------------------------------------------------------------------------------------------------
 
 Es posible ejecutar un fichero de manera que se comprueben de manera automática
 los ficheros en la carpeta Pruebas.

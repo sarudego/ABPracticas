@@ -4,106 +4,122 @@ import os
 from os import listdir
 import time
 """
-En RyP, hasta 26x26
-En P.D, hasta 23x23
+In RyP, until 26x26
+In P.D, until 23x23
+In Voraz, we don't reach the limit...
 """
 
 opt = ['fb','av','pd','rp']
-dire = listdir('Pruebas')
-dire.sort()
-for i in range(60, 5, -1):
-    dire.pop(i)
 
-ficheros_grandes = listdir('Pruebas')
-ficheros_grandes.sort(reverse=True)
-for i in range(60, 54, -1):
-    ficheros_grandes.pop(i)
-ficheros_grandes.sort()
-ficheros_din = listdir('Pruebas')
-ficheros_din.sort()
-for i in range(60, 18, -1):
-    ficheros_din.pop(i)
-ficheros_din.sort(reverse=True)
-for i in range(18, 10, -1):
-    ficheros_din.pop(i)
-ficheros_din.sort()
-ficheros128_256 = listdir('Pruebas/extra')
-ficheros128_256.sort()
-"""
-ejecucion hasta 10x10
-"""
-outfile = open('tiempos.txt', 'w') # Indicamos el valor 'w'.
-for i in opt:
-    if (i == "fb"):
-        print "Se va a ejecutar el algoritmo de \"Fuerza Bruta\" con ficheros de prueba"
-    elif (i == "av"):
-        print "Se va a ejecutar el algoritmo de \"Algoritmos Voraces\" con ficheros de prueba"
-    elif (i == "pd"):
-        print "Se va a ejecutar el algoritmo de \"Programacion Dinamica\" con ficheros de prueba"
+files_small = []
+files_medium = []
+files_large = []
+for i in listdir('Pruebas'):
+    if i == "m128.tsp" or i == "m256.tsp" or i == "m512.tsp" or i == "m1024.tsp" or i == "m2048.tsp":
+        files_large.append(i)
+    elif i == "m04.tsp" or i == "m05.tsp" or i == "m06.tsp" or i == "m07.tsp" or i == "m08.tsp" or i == "m09.tsp":
+        files_small.append(i)
     else:
-        print "Se va a ejecutar el algoritmo de \"Ramificacion y Poda\" con ficheros de prueba"
-    outfile.write("Ejecucion de " + i + "\n")
-    for j in dire:
-        print "Se va a ejecutar el fichero... " + j
+        files_medium.append(i)
+files_small.sort()
+files_medium.sort()
+files_large.sort()
+
+
+outfile = open('tiempos.txt', 'w') # Indicamos el valor 'w'.
+def bruta(alg):
+    for i in files_small:
+        print "Se va a ejecutar el fichero... " + i
         start_time = time.time()
-        # os.system('python tsp.py ' + i + ' ' + 'Pruebas/' +j)
+        os.system('python tsp.py ' + alg + ' ' + 'Pruebas/' +i)
         tiempo = (time.time() - start_time)
-        outfile.write("El fichero " + j + " ha costado " + str(tiempo) + " segundos\n")
+        outfile.write("El fichero " + i + " ha costado " + str(tiempo) + " segundos\n")
         print "Ha costado " + str(tiempo) + " segundos"
         print ""
-    outfile.write("\n")
-    print ""
-    print ""
+    for i in files_medium[:3]:
+        print "Se va a ejecutar el fichero... " + i
+        start_time = time.time()
+        os.system('python tsp.py ' + alg + ' ' + 'Pruebas/' +i)
+        tiempo = (time.time() - start_time)
+        outfile.write("El fichero " + i + " ha costado " + str(tiempo) + " segundos\n")
+        print "Ha costado " + str(tiempo) + " segundos"
+        print ""
 
-print "Ahora las matrices de 10x10 hasta 20x20... se toman su tiempo..."
-opt2 = ['av','pd','rp']
-outfile.write("\n\nAhora ficheros grandes...\n")
-for i in opt2:
-    outfile.write("\nEjecucion de " + i + "\n")
-    if (i == "av"):
-        print "Se va a ejecutar el algoritmo de \"Algoritmos Voraces\" con ficheros de prueba"
-        for j in ficheros_grandes:
-            print "Se va a ejecutar el fichero... " + j
-            start_time = time.time()
-            # os.system('python tsp.py ' + i + ' ' + 'Pruebas/' +j)
-            tiempo = (time.time() - start_time)
-            outfile.write("El fichero " + j + " ha costado " + str(tiempo) + " segundos\n")
-            print "Ha costado " + str(tiempo) + " segundos"
-            print ""
-        for j in ficheros128_256:
-            print "Se va a ejecutar el fichero... " + j
-            start_time = time.time()
-            os.system('python tsp.py ' + i + ' ' + 'Pruebas/extra/' +j)
-            tiempo = (time.time() - start_time)
-            outfile.write("El fichero " + j + " ha costado " + str(tiempo) + " segundos\n")
-            print "Ha costado " + str(tiempo) + " segundos"
-            print ""
-
+def voraz(alg):
+    for i in files_small:
+        print "Se va a eiecutar el fichero... " + i
+        start_time = time.time()
+        os.system('python tsp.py ' + alg + ' ' + 'Pruebas/' +i)
+        tiempo = (time.time() - start_time)
+        outfile.write("El fichero " + i + " ha costado " + str(tiempo) + " segundos\n")
+        print "El fichero " + i + " ha costado " + str(tiempo) + " segundos"
+        print ""
+    for i in files_medium:
+        print "Se va a ejecutar el fichero... " + i
+        start_time = time.time()
+        os.system('python tsp.py ' + alg + ' ' + 'Pruebas/' +i)
+        tiempo = (time.time() - start_time)
+        outfile.write("El fichero " + i + " ha costado " + str(tiempo) + " segundos\n")
+        print "Ha costado " + str(tiempo) + " segundos"
+        print ""
+    for i in files_large:
+        print "Se va a ejecutar el fichero... " + i
+        start_time = time.time()
+        os.system('python tsp.py ' + alg + ' ' + 'Pruebas/' +i)
+        tiempo = (time.time() - start_time)
+        outfile.write("El fichero " + i + " ha costado " + str(tiempo) + " segundos\n")
+        print "Ha costado " + str(tiempo) + " segundos"
+        print ""
+def dinamica(alg):
+    for i in files_small:
+        print "Se va a ejecutar el fichero... " + i
+        start_time = time.time()
+        os.system('python tsp.py ' + alg + ' ' + 'Pruebas/' +i)
+        tiempo = (time.time() - start_time)
+        outfile.write("El fichero " + i + " ha costado " + str(tiempo) + " segundos\n")
+        print "Ha costado " + str(tiempo) + " segundos"
+        print ""
+    for i in files_medium[:15]:
+        print "Se va a ejecutar el fichero... " + i
+        start_time = time.time()
+        os.system('python tsp.py ' + alg + ' ' + 'Pruebas/' +i)
+        tiempo = (time.time() - start_time)
+        outfile.write("El fichero " + i + " ha costado " + str(tiempo) + " segundos\n")
+        print "Ha costado " + str(tiempo) + " segundos"
+        print ""
+def poda(alg):
+    for i in files_small:
+        print "Se va a ejecutar el fichero... " + i
+        start_time = time.time()
+        os.system('python tsp.py ' + alg + ' ' + 'Pruebas/' +i)
+        tiempo = (time.time() - start_time)
+        outfile.write("El fichero " + i + " ha costado " + str(tiempo) + " segundos\n")
+        print "Ha costado " + str(tiempo) + " segundos"
+        print ""
+    for i in files_medium[:14]:
+        print "Se va a ejecutar el fichero... " + i
+        start_time = time.time()
+        os.system('python tsp.py ' + alg + ' ' + 'Pruebas/' +i)
+        tiempo = (time.time() - start_time)
+        outfile.write("El fichero " + i + " ha costado " + str(tiempo) + " segundos\n")
+        print "Ha costado " + str(tiempo) + " segundos"
+        print ""
+for i in opt:
+    outfile.write("Ejecucion de " + i + "\n")
+    if (i == "fb"):
+        print "Ejecucion de \"Fuerza Bruta\" con ficheros de prueba:"
+        bruta(i)
+    elif (i == "av"):
+        print "Ejecucion de \"Algoritmos Voraces\" con ficheros de prueba:"
+        voraz(i)
     elif (i == "pd"):
-        print "Se va a ejecutar el algoritmo de \"Programacion Dinamica\" con ficheros de prueba"
-        for j in ficheros_din:
-            print "Se va a ejecutar el fichero... " + j
-            start_time = time.time()
-            # os.system('python tsp.py ' + i + ' ' + 'Pruebas/' +j)
-            tiempo = (time.time() - start_time)
-            outfile.write("El fichero " + j + " ha costado " + str(tiempo) + " segundos\n")
-            print "Ha costado " + str(tiempo) + " segundos"
-            print ""
+        print "Ejecucion de \"Programacion Dinamica\" con ficheros de prueba:"
+        dinamica(i)
     else:
-        print "Se va a ejecutar el algoritmo de \"Ramificacion y Poda\" con ficheros de prueba"
-        for j in ficheros_grandes:
-            print "Se va a ejecutar el fichero... " + j
-            start_time = time.time()
-            # os.system('python tsp.py ' + i + ' ' + 'Pruebas/' +j)
-            tiempo = (time.time() - start_time)
-            outfile.write("El fichero " + j + " ha costado " + str(tiempo) + " segundos\n")
-            print "Ha costado " + str(tiempo) + " segundos"
-            print ""
-    print ""
-    print ""
+        print "Ejecucion de \"Ramificacion y Poda\" con ficheros de prueba:"
+        poda(i)
 
 outfile.close()
-# print dire
-# print ficheros_grandes
-# print ficheros_din
-print ficheros128_256
+# print files_small
+# print files_medium
+# print files_large

@@ -13,4 +13,4 @@ Para ejecutar un determinado algoritmo sobre un grafo se debe ejecutar:
 		donde se encuetra el archivo que contiene el grafo
 
 	Ejemplo:
-		./tsp fb /pruebas/m8.tsp
+		./tsp fb /pruebas/m08.tsp

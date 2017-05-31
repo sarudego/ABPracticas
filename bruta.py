@@ -1,6 +1,6 @@
 """
 Problema del viajante de comercio implementado mediante fuerza bruta.
-Obtiene todos los caminos posibles e indica cual es el mas corto.
+Indica cual es el camino mas corto y la secuencia de nodos que lo genera.
 """
 
 import auxi

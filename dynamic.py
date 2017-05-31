@@ -1,8 +1,12 @@
 """
-Problema del viajante de comercio implementado mediante fuerza bruta.
-Obtiene el camino mas corto.
+Problema del viajante de comercio implementado mediante programacion dinamica.
+Indica cual es el camino mas corto y la secuencia de nodos que lo genera.
 """
 
+"""
+Funcion que inicia listas de una longitud dada y con un valor dado en todas 
+sus posiciones
+"""
 def inicializarM(nodos, v):
     col = 2**(nodos)
     gtab = [v] * nodos
@@ -10,6 +14,10 @@ def inicializarM(nodos, v):
         gtab[i] =  [v] * col
     return gtab        
 
+"""
+Funcion que convierte un conjunto de nodos en un numero para poder indexar
+mediante conjuntos de nodos
+"""
 def toNumber(s):
     number = 0b0
     for i in s:
@@ -32,6 +40,9 @@ def dinamica(matriz):
     print "El camino mas corto en Programacion Dinamica es: " + str(camino)
     print "Con distancia " + str(coste)
 
+"""
+Funcion que rellena la matriz de distancias y devuelve la distancia minima
+"""
 def g(i, s, matriz, gtab, camino):
     distancia = 0
     if len(s) == 0:
@@ -51,6 +62,9 @@ def g(i, s, matriz, gtab, camino):
             gtab[i][toNumber(s)] = masCorto
             return masCorto
 
+"""
+Funcion que calcula el camino recorrido para el minimo coste encontrado
+"""
 def c(i, s, camino):
     p = []
     p.append(1)

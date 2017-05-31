@@ -1,11 +1,20 @@
+"""
+Problema del viajante de comercio implementado mediante ramificacion y poda.
+Indica cual es el camino mas corto y la secuencia de nodos que lo genera.
+"""
 
-
+"""
+Convierte los 0 de una matriz en "infinitos"
+"""
 def setinf(matriz):
     for i in range(len(matriz)):
         for j in range(len(matriz)):
             if matriz[i][j] == 0:
                 matriz[i][j] = float("inf")
 
+"""
+Obtiene el valor minimo de una fila
+"""
 def minfila(matriz, i):
     minimo = float("inf")
     for j in range(len(matriz)):
@@ -15,6 +24,9 @@ def minfila(matriz, i):
         minimo = 0
     return minimo
 
+"""
+Obtiene el valor minimo de una columna
+"""
 def mincol(matriz, i):
     minimo = float("inf")
     for j in range(len(matriz)):
@@ -23,7 +35,10 @@ def mincol(matriz, i):
     if minimo == float("inf"):
         minimo = 0
     return minimo
-       
+   
+"""
+Reduce una matriz y devuelve el coste de la reduccion
+"""    
 def reduccion(matriz):
     cost = 0
     inf = float("inf")
@@ -42,12 +57,18 @@ def reduccion(matriz):
                 matriz[j][i] = matriz[j][i] - cmin
     return cost
 
+"""
+Comprueba si un nodo es una solucion factible 
+"""
 def factible(nodo, matriz):
     for i in range(1, len(matriz)):
         if matriz[nodo][i] != float("inf"):
             return False
     return True
 
+"""
+Funcion ^c(x) 
+"""
 def poda(ini, fin, matriz, coste):
     cost = coste
     cost += matriz[ini][fin]

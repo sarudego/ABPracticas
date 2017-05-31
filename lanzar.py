@@ -4,6 +4,8 @@ import os
 from os import listdir
 import time
 """
+Limits:
+In Brute, until 13x13
 In RyP, until 26x26
 In P.D, until 23x23
 In Voraz, we don't reach the limit...
@@ -27,83 +29,41 @@ files_large.sort()
 
 
 outfile = open('tiempos.txt', 'w') # Indicamos el valor 'w'.
+def execute_time(alg,i):
+    print "Se va a ejecutar el fichero... " + i
+    start_time = time.time()
+    os.system('python tsp.py ' + alg + ' ' + 'Pruebas/' +i)
+    tiempo = (time.time() - start_time)
+    outfile.write("El fichero " + i + " ha costado " + str(tiempo) + " segundos\n")
+    print "Ha costado " + str(tiempo) + " segundos"
+    print ""
+
 def bruta(alg):
     for i in files_small:
-        print "Se va a ejecutar el fichero... " + i
-        start_time = time.time()
-        os.system('python tsp.py ' + alg + ' ' + 'Pruebas/' +i)
-        tiempo = (time.time() - start_time)
-        outfile.write("El fichero " + i + " ha costado " + str(tiempo) + " segundos\n")
-        print "Ha costado " + str(tiempo) + " segundos"
-        print ""
-    for i in files_medium[:3]:
-        print "Se va a ejecutar el fichero... " + i
-        start_time = time.time()
-        os.system('python tsp.py ' + alg + ' ' + 'Pruebas/' +i)
-        tiempo = (time.time() - start_time)
-        outfile.write("El fichero " + i + " ha costado " + str(tiempo) + " segundos\n")
-        print "Ha costado " + str(tiempo) + " segundos"
-        print ""
+        execute_time(alg,i)
+    for i in files_medium[:6]:
+        execute_time(alg,i)
 
 def voraz(alg):
     for i in files_small:
-        print "Se va a eiecutar el fichero... " + i
-        start_time = time.time()
-        os.system('python tsp.py ' + alg + ' ' + 'Pruebas/' +i)
-        tiempo = (time.time() - start_time)
-        outfile.write("El fichero " + i + " ha costado " + str(tiempo) + " segundos\n")
-        print "El fichero " + i + " ha costado " + str(tiempo) + " segundos"
-        print ""
+        execute_time(alg,i)
     for i in files_medium:
-        print "Se va a ejecutar el fichero... " + i
-        start_time = time.time()
-        os.system('python tsp.py ' + alg + ' ' + 'Pruebas/' +i)
-        tiempo = (time.time() - start_time)
-        outfile.write("El fichero " + i + " ha costado " + str(tiempo) + " segundos\n")
-        print "Ha costado " + str(tiempo) + " segundos"
-        print ""
+        execute_time(alg,i)
     for i in files_large:
-        print "Se va a ejecutar el fichero... " + i
-        start_time = time.time()
-        os.system('python tsp.py ' + alg + ' ' + 'Pruebas/' +i)
-        tiempo = (time.time() - start_time)
-        outfile.write("El fichero " + i + " ha costado " + str(tiempo) + " segundos\n")
-        print "Ha costado " + str(tiempo) + " segundos"
-        print ""
+        execute_time(alg,i)
+
 def dinamica(alg):
     for i in files_small:
-        print "Se va a ejecutar el fichero... " + i
-        start_time = time.time()
-        os.system('python tsp.py ' + alg + ' ' + 'Pruebas/' +i)
-        tiempo = (time.time() - start_time)
-        outfile.write("El fichero " + i + " ha costado " + str(tiempo) + " segundos\n")
-        print "Ha costado " + str(tiempo) + " segundos"
-        print ""
-    for i in files_medium[:15]:
-        print "Se va a ejecutar el fichero... " + i
-        start_time = time.time()
-        os.system('python tsp.py ' + alg + ' ' + 'Pruebas/' +i)
-        tiempo = (time.time() - start_time)
-        outfile.write("El fichero " + i + " ha costado " + str(tiempo) + " segundos\n")
-        print "Ha costado " + str(tiempo) + " segundos"
-        print ""
-def poda(alg):
-    for i in files_small:
-        print "Se va a ejecutar el fichero... " + i
-        start_time = time.time()
-        os.system('python tsp.py ' + alg + ' ' + 'Pruebas/' +i)
-        tiempo = (time.time() - start_time)
-        outfile.write("El fichero " + i + " ha costado " + str(tiempo) + " segundos\n")
-        print "Ha costado " + str(tiempo) + " segundos"
         print ""
     for i in files_medium[:14]:
-        print "Se va a ejecutar el fichero... " + i
-        start_time = time.time()
-        os.system('python tsp.py ' + alg + ' ' + 'Pruebas/' +i)
-        tiempo = (time.time() - start_time)
-        outfile.write("El fichero " + i + " ha costado " + str(tiempo) + " segundos\n")
-        print "Ha costado " + str(tiempo) + " segundos"
-        print ""
+        execute_time(alg,i)
+
+def poda(alg):
+    for i in files_small:
+        execute_time(alg,i)
+    for i in files_medium[:17]:
+        execute_time(alg,i)
+
 for i in opt:
     outfile.write("Ejecucion de " + i + "\n")
     if (i == "fb"):

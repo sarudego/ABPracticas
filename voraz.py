@@ -1,9 +1,7 @@
-
-def inicializarS(nodos, n):
-    s = []
-    for i in range(nodos):
-        s.append(n)
-    return s
+"""
+Problema del viajante de comercio implementado mediante un algoritmo voraz.
+Indica cual es el camino mas corto y la secuencia de nodos que lo genera.
+"""
 
 def voraz(matriz):
     inicio = 1

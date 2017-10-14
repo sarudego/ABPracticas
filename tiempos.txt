@@ -1,12 +1,13 @@
 Ejecucion de fb
-El fichero m04.tsp ha costado 0.0117211341858 segundos
-El fichero m05.tsp ha costado 0.010617017746 segundos
-El fichero m06.tsp ha costado 0.0100359916687 segundos
-El fichero m07.tsp ha costado 0.0105118751526 segundos
-El fichero m08.tsp ha costado 0.0181839466095 segundos
-El fichero m09.tsp ha costado 0.0843570232391 segundos
-El fichero m10.tsp ha costado 0.731873989105 segundos
-El fichero m11.tsp ha costado 7.92086696625 segundos
+El fichero m04.tsp ha costado 0.00886583328247 segundos
+El fichero m05.tsp ha costado 0.0131189823151 segundos
+El fichero m06.tsp ha costado 0.00983309745789 segundos
+El fichero m07.tsp ha costado 0.0113270282745 segundos
+El fichero m08.tsp ha costado 0.0226600170135 segundos
+El fichero m09.tsp ha costado 0.0868480205536 segundos
+El fichero m10.tsp ha costado 0.727338075638 segundos
+El fichero m11.tsp ha costado 7.80612111092 segundos
+El fichero m12.tsp ha costado 104.89796114 segundos
 Ejecucion de av
 El fichero m04.tsp ha costado 0.00874495506287 segundos
 El fichero m05.tsp ha costado 0.00906205177307 segundos
@@ -119,3 +120,4 @@ El fichero m23.tsp ha costado 907.944134951 segundos
 El fichero m24.tsp ha costado 109.759800911 segundos
 El fichero m25.tsp ha costado 0.935230970383 segundos
 El fichero m26.tsp ha costado 6.38094186783 segundos
+
